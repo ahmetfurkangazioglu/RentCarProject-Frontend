@@ -21,6 +21,7 @@ export class BrandAddComponent implements OnInit {
   brandAddForm:FormGroup;
   checkDelete:boolean=false;
   checkUpdate:boolean=false;
+  
   checkAdd:boolean=false;
 
   constructor(private brandService:BrandService,
