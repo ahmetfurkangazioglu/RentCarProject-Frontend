@@ -45,6 +45,7 @@ export class LoginRegisterComponent implements OnInit {
     let loginModel=Object.assign({},this.loginForm.value)
     this.authService.login(loginModel).subscribe(response=>{
       this.localStorage.set("token",response.data.token)
+      this.localStorage.set("email",this.loginForm.value.email)
       this.toastrService.success("Giriş Yapıldı","Başarılı")
     },responseError=>{
       console.log(responseError.error)
@@ -65,8 +66,9 @@ export class LoginRegisterComponent implements OnInit {
    if(this.registerForm.valid){
      let registerModel=Object.assign({},this.registerForm.value)
      this.authService.register(registerModel).subscribe(response=>{
-      this.toastrService.success("Üye Olundu","Başarılı")
       this.localStorage.set("token",response.data.token)
+      this.localStorage.set("email",this.registerForm.value.email)
+      this.toastrService.success("Üye Olundu","Başarılı")
      },responseError=>{
       console.log(responseError.error)
       if(responseError.error.Errors.length>0){
