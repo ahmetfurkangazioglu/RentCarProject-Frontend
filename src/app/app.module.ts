@@ -27,6 +27,7 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
 import { ImagePanelComponent } from './components/image-panel/image-panel.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { UserInformationComponent } from './components/user-information/user-information.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     BrandAddComponent,
     ColorAddComponent,
     ImagePanelComponent,
-    LoginRegisterComponent
+    LoginRegisterComponent,
+    UserInformationComponent
   ],
   imports: [
     BrowserModule,
