@@ -1,64 +1,127 @@
-<br> <br>
-<div class="card">
-    <br>
-<div class="row">
-<div class="col-md-6">
-    <div class="vr"></div>
-    <div style="color: rgb(215, 137, 42);" > <h5> &nbsp;&nbsp; Üyelik Bilgilerim</h5> </div>
-<form class="row g-4">
-   
-    <div class="col-md-6">
-        
-      <label for="inputFİrstName" class="form-label">Adınız</label>
-      <input type="text" class="form-control form-control-lg" id="inputFİrstName">
-    </div>
-    <div class="col-md-6">
-      <label for="inputLastName" class="form-label">Soyadınız</label>
-      <input type="text" class="form-control form-control-lg" id="inputLastName">
-    </div>
-    <div class="col-12">
-      <label for="inputEmail" class="form-label">Email</label>
-      <input type="email" class="form-control form-control-lg" id="inputEmail" placeholder="Email adresi">
-    </div>
-    <div class="col-12">
-      <label for="inputPhoneNumber" class="form-label">Telefon Numarası</label>
-      <input type="text" class="form-control form-control-lg" id="inputPhoneNumber" placeholder="Telefon numaranız">
-    </div>
-   
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary">Sign in</button>
-    </div>
-  </form>
-
+<br />
+<br />
+<div class="card" >
+  <br>
+  <div style="margin-left: 4ch;">
+  <strong> <h4 style="color: rgb(113, 34, 34);">Kullanıcı Bilgilerim</h4></strong>
+  <br>
 </div>
+</div>
+<br>
+<div class="card">
+  <br />
+  <div class="row">
+    <div class="col-md-6">
+      <div class="vr"></div>
+      <div style="color: rgb(215, 137, 42)">
+        <h5 style="margin-left: 4ch;">&nbsp;&nbsp; Üyelik Bilgilerim</h5>
+      </div>
+      <form [formGroup]="userUpdateForm" style="margin-left: 4ch;" class="row g-4">
+        <div class="col-md-6">
+          <label for="inputFİrstName" class="form-label">Adınız</label>
+          <input formControlName="firstName" style="background-color: rgba(142, 139, 139, 0.222);"
+            type="text"
+            class="form-control form-control-lg"
+            id="inputFİrstName"
+          />
+        </div>
+        <div class="col-md-6">
+          <label for="inputLastName" class="form-label">Soyadınız</label>
+          <input formControlName="lastName" style="background-color: rgba(142, 139, 139, 0.222);"
+            type="text"
+            class="form-control form-control-lg"
+            id="inputLastName"
+          />
+        </div>
+        <div class="col-12">
+          <label for="inputEmail" class="form-label">Email</label>
+          <input formControlName="email" style="background-color: rgba(142, 139, 139, 0.222);"
+            type="email"
+            class="form-control form-control-lg"
+            id="inputEmail"
+            placeholder="Email adresi"
+          />
+        </div>
+        <div class="col-12">
+          <label for="inputPhoneNumber" class="form-label"
+            >Telefon Numarası</label
+          >
+          <input formControlName="phoneNumber" style="background-color: rgba(142, 139, 139, 0.222);"
+            type="text"
+            class="form-control form-control-lg"
+            id="inputPhoneNumber"
+            placeholder="Telefon numaranız"
+          />
+        </div>
+        <div class="col-md-12">
+          <label for="inputcompanyName" class="form-label">Şirket İsmi</label>
+          <input  formControlName="companyName" style="background-color: rgba(142, 139, 139, 0.222);"
+            type="text"
+            class="form-control form-control-lg"
+            id="inputcompanyName"
+          />
+        </div>
 
+        <div class="col-12">
+          
+            <button 
+            style="margin-left: 5ch;"
+              type="button"
+              class="btn user btn-lg">
+              
+          
+             Bilgileri Kaydet
+            </button>
+        </div>
+      </form>
+      <br><br>
+    </div>
 
-<div class="col-md-6">
-    <div style="color: rgb(215, 137, 42);" > <h5> Şifre Güncelleme </h5> </div>
-    <form>
+    <div class="col-md-6">
+      <div style="color: rgb(215, 137, 42)"><h5>Şifre Güncelleme</h5></div>
+      <form>
         <div class="row mb-4">
-            
           <label for="inputEmail3" class="form-label">Şu Anki Şifre</label>
           <div class="col-sm-10">
-            <input type="password" class="form-control form-control-lg" id="inputEmail3">
+            <input style="background-color: rgba(142, 139, 139, 0.222);"
+              type="password"
+              class="form-control form-control-lg"
+              id="inputEmail3"
+            />
           </div>
         </div>
         <div class="row mb-4">
-          <label for="inputPassword3"class="form-label">Yeni Şifre</label>
+          <label for="inputPassword3" class="form-label">Yeni Şifre</label>
           <div class="col-sm-10">
-            <input type="password" class="form-control form-control-lg" id="inputPassword2">
+            <input style="background-color: rgba(142, 139, 139, 0.222);"
+              type="password"
+              class="form-control form-control-lg"
+              id="inputPassword2"
+            />
           </div>
         </div>
         <div class="row mb-4">
-            <label for="inputPassword3" class="form-label">Yeni Şifre Tekrar</label>
-            <div class="col-sm-10">
-              <input type="password" class="form-control form-control-lg" id="inputPassword3">
-            </div>
+          <label for="inputPassword3" class="form-label"
+            >Yeni Şifre Tekrar</label
+          >
+          <div class="col-sm-10">
+            <input style="background-color: rgba(142, 139, 139, 0.222);"
+              type="password"
+              class="form-control form-control-lg"
+              id="inputPassword3"
+            />
           </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+        <button 
+        style="margin-left: 3ch;"
+          type="button"
+          class="btn user btn-lg">
+          
+        
+          Şifre Güncelle
+        </button>
       </form>
-      
+    </div>
+  </div>
 </div>
-
-</div>
-</div>
+<div *ngFor="let userDetail of userDetails">{{userDetail.userId}} {{userDetail.lastName}} {{userDetail.companyName}}</div>

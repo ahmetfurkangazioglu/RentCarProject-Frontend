@@ -1,4 +1,4 @@
-export interface Customer{
+export interface UserDetail{
     userId:number;
     customerId:number;
     firstName:string;

@@ -1,8 +1,30 @@
 .vr {
     border-left: 2px solid #dfc9b3;
-    height: 407px;
+    height: 576px;
     position: absolute;
     left: 50%;
     margin-left: -3px;
     top: 0;
+  }
+
+  .btn {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    padding: 14px 178px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+
+
+  .user {
+    border-color: #ff851a;
+    color: #ff851a;
+  }
+  
+  
+  .user:hover {
+    background-color: #ff851a;
+    color: rgb(255, 255, 255);
   }
