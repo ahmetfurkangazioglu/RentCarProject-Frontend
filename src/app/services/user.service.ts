@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
+import { ResponseModel } from '../models/responseModel';
+import { SingelResponseModel } from '../models/singelResponseModel';
 import { User } from '../models/user';
 import { UserDetail } from '../models/userDetail';
 
@@ -28,4 +30,8 @@ getUserByUserId(userId:number):Observable<ListResponseModel<UserDetail>>{
   let newPath= this.apiUrl+"userdetailuserId?userId="+userId
   return this.httpClient.get<ListResponseModel<UserDetail>>(newPath)
 }
+ userUpdate(user:UserDetail):Observable<ResponseModel>{
+  let newPath=this.apiUrl+"update"
+  return this.httpClient.post<ResponseModel>(newPath,user)
+ }
 }

@@ -1,3 +1,4 @@
+
 export interface UserDetail{
     userId:number;
     customerId:number;

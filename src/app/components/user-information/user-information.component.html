@@ -12,6 +12,7 @@
   <br />
   <div class="row">
     <div class="col-md-6">
+     
       <div class="vr"></div>
       <div style="color: rgb(215, 137, 42)">
         <h5 style="margin-left: 4ch;">&nbsp;&nbsp; Üyelik Bilgilerim</h5>
@@ -67,9 +68,9 @@
             <button 
             style="margin-left: 5ch;"
               type="button"
-              class="btn user btn-lg">
-              
-          
+              class="btn user btn-lg"
+              (click)="userUpdate()"
+              >
              Bilgileri Kaydet
             </button>
         </div>
@@ -124,4 +125,4 @@
     </div>
   </div>
 </div>
-<div *ngFor="let userDetail of userDetails">{{userDetail.userId}} {{userDetail.lastName}} {{userDetail.companyName}}</div>
+
