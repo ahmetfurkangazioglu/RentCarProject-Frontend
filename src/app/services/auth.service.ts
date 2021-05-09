@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginModel } from '../models/loginModel';
+import { passwordUpdateModel } from '../models/passwordUpdateModel';
 import { RegisterModel } from '../models/registerModel';
+import { ResponseModel } from '../models/responseModel';
 import { SingelResponseModel } from '../models/singelResponseModel';
 import { TokenModel } from '../models/tokenModel';
 import { LocalStorageService } from './local-storage.service';
@@ -22,6 +24,11 @@ export class AuthService {
 
  register(user:RegisterModel){
    return this.httpClient.post<SingelResponseModel<TokenModel>>(this.apiUrl+"register",user);
+ }
+
+ updatePassword(user:passwordUpdateModel){
+   let newPath= this.apiUrl+"updatepassword"
+  return this.httpClient.post<ResponseModel>(newPath,user);
  }
 
  isAuthenticated(){

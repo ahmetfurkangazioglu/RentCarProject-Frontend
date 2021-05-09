@@ -48,7 +48,7 @@ export class LoginRegisterComponent implements OnInit {
       this.localStorage.set("email",this.loginForm.value.email)
       this.toastrService.success("Giriş Yapıldı","Başarılı")
     },responseError=>{
-      console.log(responseError.error)
+      this.toastrService.error(responseError.error)
       if(responseError.error.Errors.length>0){
         for (let i = 0; i < responseError.error.Errors.length; i++) {
           this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Doğrulama Hatası")        
@@ -65,12 +65,13 @@ export class LoginRegisterComponent implements OnInit {
  register(){
    if(this.registerForm.valid){
      let registerModel=Object.assign({},this.registerForm.value)
+     console.log(registerModel)
      this.authService.register(registerModel).subscribe(response=>{
       this.localStorage.set("token",response.data.token)
       this.localStorage.set("email",this.registerForm.value.email)
       this.toastrService.success("Üye Olundu","Başarılı")
      },responseError=>{
-      console.log(responseError.error)
+      this.toastrService.error(responseError.error)
       if(responseError.error.Errors.length>0){
         for (let i = 0; i < responseError.error.Errors.length; i++) {
           this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Doğrulama Hatası")        
