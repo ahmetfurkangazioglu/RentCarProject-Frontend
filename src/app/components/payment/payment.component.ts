@@ -7,6 +7,7 @@ import { Customer } from 'src/app/models/customer';
 import { Rental } from 'src/app/models/rental';
 import { CarService } from 'src/app/services/car.service';
 import { CustomerService } from 'src/app/services/customer.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { PaymentService } from 'src/app/services/payment.service';
 import { RentalService } from 'src/app/services/rental.service';
 
@@ -43,13 +44,14 @@ export class PaymentComponent implements OnInit {
     private formBuilder:FormBuilder,
     private router:Router,
     private toastrService:ToastrService,
-    private paymentService:PaymentService,) { }
+    private paymentService:PaymentService,
+    private localStorageService:LocalStorageService,) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
       if(params["carId"]){
         this.getCarByCarId(params["carId"])
-        this.getCustomer();
+        this.getCustomerId();
         //this.checkRental();
       }
     })
@@ -63,10 +65,12 @@ getCarByCarId(carId:number){
   })
 }
 
-getCustomer(){
-this.customerService.getCustomers().subscribe(response=>{
-  this.customers=response.data;
-})
+getCustomerId(){
+  let userId=this.localStorageService.get("userId")
+  this.customerService.getByUserId(userId).subscribe(response=>{
+    this.customerId=response.data.customerId
+    
+  })
 }
 
 

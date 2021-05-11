@@ -14,6 +14,7 @@ import { PaymentAddComponent } from './components/payment-add/payment-add.compon
 import { PaymentComponent } from './components/payment/payment.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { UserInformationComponent } from './components/user-information/user-information.component';
+import { CustomerGuard } from './guards/customer.guard';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
@@ -25,7 +26,7 @@ const routes: Routes = [
   {path:"caradd",component:CarAddComponent, canActivate:[LoginGuard]},
   {path:"cars/details/:carId",component:CardetailComponent},
   {path:"cars/filter/:brandId/:colorId",component:CarComponent},
-  {path:"cars/payment/:carId",component:PaymentComponent},
+  {path:"cars/payment/:carId",component:PaymentComponent, canActivate:[CustomerGuard] },
   {path:"payment",component:PaymentAddComponent},
   {path:"admin-panel",component:AdminPanelComponent, canActivate:[LoginGuard]},
   {path:"caradd",component:CarAddComponent, canActivate:[LoginGuard]},

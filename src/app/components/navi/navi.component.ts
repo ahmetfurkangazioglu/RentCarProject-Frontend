@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
+import { UserDetail } from 'src/app/models/userDetail';
 import { AuthService } from 'src/app/services/auth.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { UserService } from 'src/app/services/user.service';
@@ -15,6 +16,9 @@ export class NaviComponent implements OnInit {
 
   users:User[]=[];
   email:any;
+  userId:number
+  userDetails:UserDetail[]
+  companyName:string;
 
   constructor(private authService:AuthService,
     private router:Router,
@@ -32,9 +36,22 @@ export class NaviComponent implements OnInit {
    this.email= this.localStorage.get("email")
     this.userService.getByEmail(this.email).subscribe(response=>{
       this.users = response.data;
+      this.users.forEach(element => {
+        this.userId=element.id;
+        this.localStorage.set("userId",this.userId);
+      });
+      this.userService.getUserByUserId(this.userId).subscribe(response=>{
+          this.userDetails=response.data
+          this.userDetails.forEach(element => {
+            this.companyName = element.companyName
+          });
+          if(this.companyName!=null){
+            this.localStorage.set("control",true)
+          }
+      })
     })
   }
-
+  
 
   tokenControl(){
    if(this.authService.isAuthenticated()){

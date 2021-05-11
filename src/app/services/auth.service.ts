@@ -39,4 +39,13 @@ export class AuthService {
      return false;
    }
  }
+
+ companyControl(){
+   if(this.localStorage.get("control")){
+     return true;
+   }
+   else{
+     return false;
+   }
+ }
 }

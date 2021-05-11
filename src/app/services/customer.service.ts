@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
 import { Customer } from '../models/customer';
 import { ResponseModel } from '../models/responseModel';
+import { SingelResponseModel } from '../models/singelResponseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -26,4 +27,10 @@ export class CustomerService {
    let newPath=this.apiUrl+"update"
    return this.httpClient.post<ResponseModel>(newPath,customer)
  }
+ getByUserId(userId:any):Observable<SingelResponseModel<Customer>>{
+   let newPath=this.apiUrl+"userid?Id="+userId
+   return this.httpClient.get<SingelResponseModel<Customer>>(newPath);
+ }
+
+ 
 }
