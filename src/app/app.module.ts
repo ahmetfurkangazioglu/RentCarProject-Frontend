@@ -28,6 +28,7 @@ import { ImagePanelComponent } from './components/image-panel/image-panel.compon
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { UserInformationComponent } from './components/user-information/user-information.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { UserInformationComponent } from './components/user-information/user-inf
     ColorAddComponent,
     ImagePanelComponent,
     LoginRegisterComponent,
-    UserInformationComponent
+    UserInformationComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

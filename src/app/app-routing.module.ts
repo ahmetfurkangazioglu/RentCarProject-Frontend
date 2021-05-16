@@ -8,6 +8,7 @@ import { CarComponent } from './components/car/car.component';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
 import { CustomerComponent } from './components/customer/customer.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 import { ImagePanelComponent } from './components/image-panel/image-panel.component';
 import { LoginRegisterComponent } from './components/login-register/login-register.component';
 import { PaymentAddComponent } from './components/payment-add/payment-add.component';
@@ -18,7 +19,7 @@ import { CustomerGuard } from './guards/customer.guard';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
-  {path:"",pathMatch:"full",component:CarComponent},
+  {path:"",pathMatch:"full",component:HomePageComponent},
   {path:"rentals",component:RentalComponent},
   {path:"customers",component:CustomerComponent},
   {path:"cars/brand/:brandId",component:CarComponent},
