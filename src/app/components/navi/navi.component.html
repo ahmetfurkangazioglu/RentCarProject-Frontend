@@ -25,9 +25,12 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
+         
+          <div *ngIf="claimName!=null">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" routerLink="/admin-panel"   class="button"  >Yönetici Paneli</a>
         </li>
+      </div>
       </ul>
 
       <div *ngIf="loginControl==false">
@@ -77,3 +80,5 @@
     </div>
   </div>
 </nav>
+
+

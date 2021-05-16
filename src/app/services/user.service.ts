@@ -6,6 +6,7 @@ import { ResponseModel } from '../models/responseModel';
 import { SingelResponseModel } from '../models/singelResponseModel';
 import { User } from '../models/user';
 import { UserDetail } from '../models/userDetail';
+import { UserOperationClaim } from '../models/userOperationClaim';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,9 @@ getUserByUserId(userId:number):Observable<ListResponseModel<UserDetail>>{
  userUpdate(user:UserDetail):Observable<ResponseModel>{
   let newPath=this.apiUrl+"update"
   return this.httpClient.post<ResponseModel>(newPath,user)
+ }
+ getClaim(user:User):Observable<ListResponseModel<UserOperationClaim>>{
+   let newPath= this.apiUrl+"claim?user="+user
+   return this.httpClient.get<ListResponseModel<UserOperationClaim>>(newPath)
  }
 }

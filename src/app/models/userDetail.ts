@@ -8,4 +8,5 @@ export interface UserDetail{
     companyName:string;
     status:boolean;
     phoneNumber:string;
+    name:string;
 }

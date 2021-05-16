@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
 import { UserDetail } from 'src/app/models/userDetail';
+import { UserOperationClaim } from 'src/app/models/userOperationClaim';
 import { AuthService } from 'src/app/services/auth.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { UserService } from 'src/app/services/user.service';
@@ -19,6 +20,10 @@ export class NaviComponent implements OnInit {
   userId:number
   userDetails:UserDetail[]
   companyName:string;
+  claims:UserOperationClaim[]
+  claimName:string
+  controlClaimName:boolean
+
 
   constructor(private authService:AuthService,
     private router:Router,
@@ -30,6 +35,7 @@ export class NaviComponent implements OnInit {
   ngOnInit(): void {
     this.tokenControl()
     this.getUserByEmail()
+ 
   }
  
   getUserByEmail(){
@@ -44,6 +50,7 @@ export class NaviComponent implements OnInit {
           this.userDetails=response.data
           this.userDetails.forEach(element => {
             this.companyName = element.companyName
+            this.claimName=element.name
           });
           if(this.companyName!=null){
             this.localStorage.set("control",true)
@@ -52,7 +59,7 @@ export class NaviComponent implements OnInit {
     })
   }
   
-
+ 
   tokenControl(){
    if(this.authService.isAuthenticated()){
     return this.loginControl=false;
