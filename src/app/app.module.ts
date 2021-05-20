@@ -30,6 +30,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { UserInformationComponent } from './components/user-information/user-information.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { FootersComponent } from './components/footers/footers.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ContactComponent } from './components/contact/contact.component';
     LoginRegisterComponent,
     UserInformationComponent,
     HomePageComponent,
-    ContactComponent
+    ContactComponent,
+    FootersComponent
   ],
   imports: [
     BrowserModule,
