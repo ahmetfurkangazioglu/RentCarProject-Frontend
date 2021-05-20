@@ -1,0 +1,72 @@
+/* Button Style 1 (Left Icons) */
+.icon-btn{
+    min-height:150px;
+    background:#f5f5f5;
+    float:left;
+}
+
+.icon-btn button{
+    float:left;
+    margin:10px;
+}
+
+
+.btn-green{
+    font-size:23px;
+    padding:0px 20px;
+    color: #fff;
+    background-color: #47a447;
+    border:none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width:230px;
+}
+
+.btn-pink{
+    font-size:23px;
+    padding:0px 20px;
+    color: #fff;
+    background-color: #f11350;
+    border:none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width:230px;
+}
+
+.btn-facebook{
+    font-size:23px;
+    padding:0px 20px;
+    color: #fff;
+    background-color: #5863db;
+    border:none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width:148px;
+}
+
+.btn-instagram{
+    font-size:23px;
+    padding:0px 20px;
+    color: #fff;
+    background-color: #DD2A7B;
+    border:none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width:148px;
+}
+
+.btn-twitter{
+    font-size:23px;
+    padding:0px 20px;
+    color: #fff;
+    background-color: #00acee;
+    border:none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width:148px;
+}

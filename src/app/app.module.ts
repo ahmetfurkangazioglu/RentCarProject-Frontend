@@ -29,6 +29,7 @@ import { LoginRegisterComponent } from './components/login-register/login-regist
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { UserInformationComponent } from './components/user-information/user-information.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { HomePageComponent } from './components/home-page/home-page.component';
     ImagePanelComponent,
     LoginRegisterComponent,
     UserInformationComponent,
-    HomePageComponent
+    HomePageComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
