@@ -29,8 +29,13 @@ export class CarImageService {
     return this.httpClient.post<ResponseModel>(newPath,image);
   }
 
-  deleteImage(imageModel: CarImage): Observable<ResponseModel> {
+  deleteImage(imageModel:FormData): Observable<ResponseModel> {
     let newPath=this.apiUrl+"carImages/delete"
     return this.httpClient.post<ResponseModel>(newPath,imageModel);
+  }
+
+  getImageById(id:number):Observable<ListResponseModel<CarImage>>{
+    let newPath=this.apiUrl+"carImages/getbyid?Id="+id;
+    return this.httpClient.get<ListResponseModel<CarImage>>(newPath);
   }
 }

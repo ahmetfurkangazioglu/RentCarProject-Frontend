@@ -67,24 +67,6 @@ export class ImagePanelComponent implements OnInit {
     })
   }
 
-  carImageAdd(){
-    console.log(this.carImageForm);
-   if(this.carImageForm.valid){
-    let imageModel = Object.assign({carId:+this.carId},this.carImageForm.value)
-    console.log(imageModel);
-    this.imageService.carImageAdd(imageModel).subscribe(response=>{
-      this.toastrService.success(response.message,"Başarılı")
-    },responseError=>{
-      if(responseError.error.Errors.length>0){
-        for (let i = 0; i < responseError.error.Errors.length; i++) {
-          this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Doğrulama Hatası")        
-        }
-      } 
-    })
-   } else{
-     this.toastrService.error("Form Eksik","Hata")
-   }
-  }
 
 
 createCarAddForm(){
@@ -171,7 +153,7 @@ createImageUpdateForm(): void {
   updateImage(): void {
     if (this.carImageForm.valid) {
       const formData: FormData = new FormData();
-      formData.append("imageId",this.imageId.toString())
+      formData.append("Id",this.imageId.toString())
       formData.append('image', this.imageDataToUpload);
       formData.append('carId', this.carId.toString());
       this.imageService.updateImage(formData).subscribe(
@@ -195,6 +177,19 @@ createImageUpdateForm(): void {
     }
   }
 
+
+
+
+  delete(){
+    const formData: FormData = new FormData();
+    formData.append('Id', this.imageId.toString());
+    this.imageService.deleteImage(formData).subscribe(response=>{
+      this.getCarImagesByCarId(this.carId)
+      this.toastrService.success(response.message,"Başarılı")
+    }, responseError => {
+      this.toastrService.error(responseError,"Hata")
+    })
+  }
 
   setImageToDelete(image: CarImage): void {
     this.imageToDelete = image;

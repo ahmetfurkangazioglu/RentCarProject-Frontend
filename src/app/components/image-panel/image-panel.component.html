@@ -81,9 +81,9 @@ data-bs-toggle="modal" data-bs-target="#imageModal"
               <section style="float: right">
                 <button
                   type="button"
-                 
+                  (click)="checkBool('delete',carImage.imageId)"
                   style="background-color: rgb(184, 68, 68)"
-                
+                  data-bs-toggle="modal" data-bs-target="#imageModal"
                   class="btn btn-success"
                 >
                    Resmi Sil
@@ -178,17 +178,16 @@ data-bs-toggle="modal" data-bs-target="#imageModal"
 
 
        <div *ngIf="checkAdd">
-        <button type="button"  style=" background-color: rgb(68, 155, 66);" class="btn btn-lg w-10" (click)="addImage()"  >Ekle</button>
+        <button type="button"  style=" background-color: rgb(68, 155, 66);" class="btn btn-lg w-10" (click)="addImage() "  data-bs-dismiss="modal" >Ekle</button>
        </div>
        
        
        <div *ngIf="checkDelete">
-        <button type="button" style=" background-color: rgb(196, 137, 137);" class="btn btn-lg w-10" (click)="carImageAdd()"  >Sil</button>
+        <button type="button" style=" background-color: rgb(114, 92, 75);" class="btn btn-lg w-10"  (click)="delete()" data-bs-dismiss="modal" >Sil</button>
        </div>
      
        <div *ngIf="checkUpdate">
-        <button type="button"  style=" background-color: rgb(171, 194, 188);" class="btn btn-lg w-10"  (click)="updateImage()"
-        >Güncelle</button>
+        <button type="button"  style=" background-color: rgb(55, 142, 119);" class="btn btn-lg w-10" data-bs-dismiss="modal" (click)="updateImage()" >Güncelle</button>
        </div>
 
 
