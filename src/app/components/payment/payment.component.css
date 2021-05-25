@@ -1,50 +1,164 @@
-body{
-    margin-top: 100px !important;
-}
-.btn {
-    background-color: #F48224;
+.btn{
     color: #fff;
-    font-size: 17px;
-    font-weight: 800;
-    text-transform: uppercase;
-    position: relative;
-    border-radius: 0 !important;
+    background: linear-gradient(135deg, #0e8439, #14c1b2);
+    font-family: 'Comfortaa', cursive;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: lowercase;
+    padding: 10px 20px;
     border: none;
-    transition:all 0.3s ease 0s;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
 }
-.btn:hover,
-.btn.active:hover{
-    color: #ffffff;
+.btn:hover{
+    color: #fff;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    animation: rotate 0.7s ease-in-out both;
 }
-.btn:before{
-    content: "";
-    position: absolute;
-    top: -7px;
-    left: 0;
-    background-color:#2E0014;
-    width: 50%;
-    height: 3px;
-    transition:all 0.9s ease 0s;
-}
+.btn:before,
 .btn:after{
-    content: "";
+    content: '';
+    background: #fff;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(100%, -25%) translate3d(0, 0, 0);
     position: absolute;
-    bottom: -7px;
     right: 0;
-    background-color:#2E0014;
-    width: 50%;
-    height: 3px;
-    transition:all 0.9s ease 0s;
+    bottom: 0;
+    z-index: -1;
+    transition: all 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
 }
 .btn:hover:before,
-.btn:hover:after,
-.btn.active:before,
-.btn.active:after{
-    width: 100%;
+.btn:hover:after{
+    opacity: 0.15;
+}
+.btn:hover:before{ transform: translate3d(50%, 0, 0) scale(0.9); }
+.btn:hover:after{ transform: translate(50%, 0) scale(1.1); }
+@keyframes rotate{
+    0%{ transform: rotate(0deg); }
+    25%{ transform: rotate(3deg); }
+    50%{ transform: rotate(-3deg); }
+    75%{ transform: rotate(1deg); }
+    100%{ transform: rotate(0deg); }
+}
+@media only screen and (max-width: 767px){
+    .btn{ margin-bottom: 20px; }
 }
 
-@media screen and (max-width: 575px){
-    .btn{
-        margin-bottom: 50px !important;
-    }
+
+
+
+.btndelete{
+    color: #fff;
+    background: linear-gradient(135deg, #ff4d4d, #763939);
+    font-family: 'Comfortaa', cursive;
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: lowercase;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
 }
+.btndelete:hover{
+    color: #fff;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    animation: rotate 0.7s ease-in-out both;
+}
+.btndelete:before,
+.btndelete:after{
+    content: '';
+    background: #fff;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(100%, -25%) translate3d(0, 0, 0);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: all 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+.btndelete:hover:before,
+.btndelete:hover:after{
+    opacity: 0.15;
+}
+.btndelete:hover:before{ transform: translate3d(50%, 0, 0) scale(0.9); }
+.btndelete:hover:after{ transform: translate(50%, 0) scale(1.1); }
+@keyframes rotate{
+    0%{ transform: rotate(0deg); }
+    25%{ transform: rotate(3deg); }
+    50%{ transform: rotate(-3deg); }
+    75%{ transform: rotate(1deg); }
+    100%{ transform: rotate(0deg); }
+}
+@media only screen and (max-width: 767px){
+    .btndelete{ margin-bottom: 20px; }
+}
+
+
+
+
+
+
+.btninfo{
+    color: #fff;
+    background: linear-gradient(135deg, #9e6161, #763939);
+    font-family: 'Comfortaa', cursive;
+    font-size: 19px;
+    font-weight: 500;
+    text-transform: lowercase;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+.btninfo:hover{
+    color: #fff;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    animation: rotate 0.7s ease-in-out both;
+}
+.btninfo:before,
+.btninfo:after{
+    content: '';
+    background: #fff;
+    width: 100px;
+    height:100px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(100%, -25%) translate3d(0, 0, 0);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: all 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
+.btninfo:hover:before,
+.btninfo:hover:after{
+    opacity: 0.15;
+}
+.btninfo:hover:before{ transform: translate3d(50%, 0, 0) scale(0.9); }
+.btninfo:hover:after{ transform: translate(50%, 0) scale(1.1); }
+@keyframes rotate{
+    0%{ transform: rotate(0deg); }
+    25%{ transform: rotate(3deg); }
+    50%{ transform: rotate(-3deg); }
+    75%{ transform: rotate(1deg); }
+    100%{ transform: rotate(0deg); }
+}
+@media only screen and (max-width: 767px){
+    .btninfo{ margin-bottom: 20px; }
+}
+

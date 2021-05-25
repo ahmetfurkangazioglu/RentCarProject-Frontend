@@ -19,7 +19,7 @@
           <p class="card-text" style="font-weight: 700">
             {{ car.description }}
           </p>
-          <a routerLink="/cars" class="btn btn-primary" style="background-color: rgba(135, 114, 62, 0.824);" >Araba Listesi</a>
+          <button routerLink="/cars" class="btninfo btn-primary" style="background-color: rgba(135, 114, 62, 0.824);" >Araba Listesi</button>
         </div>
       </div>
     </div>
@@ -30,15 +30,13 @@
     <div class="row row-cols-7" *ngFor="let car of cars">
       <div
         class="col"
-        class="p-3 mb-1 bg-secondary text-white"
-        style="text-align: center; border: 3px solid rgb(146, 197, 195)"
+        style="background-color:  rgba(42, 42, 60, 0.735); text-align: center; border: 3px solid" class="p-3 mb-2 text-white"
       >
         <h5>Araba Markası: {{ car.carName }}</h5>
       </div>
       <div
         class="col"
-        class="p-3 mb-1 bg-secondary text-white"
-        style="text-align: center; border: 3px solid rgb(146, 197, 195)"
+        style="background-color: rgba(42, 42, 60, 0.735); text-align: center; border: 3px solid" class="p-3 mb-1 text-white"
       >
         <h5>Arabanın Rengi: {{ car.colorName }}</h5>
       </div>
@@ -46,15 +44,13 @@
       <br />
       <div
         class="col"
-        class="p-3 mb-1 bg-secondary text-white"
-        style="text-align: center; border: 3px solid rgb(146, 197, 195)"
+        style="background-color:   rgba(42, 42, 60, 0.735); text-align: center; border: 3px solid" class="p-3 mb-1 text-white"
       >
         <h5>Arabanın Modeli: {{ car.brandName }}</h5>
       </div>
       <div
         class="col"
-        class="p-3 mb-1 bg-secondary text-white"
-        style="text-align: center; border: 3px solid rgb(146, 197, 195)"
+        style="background-color:   rgba(42, 42, 60, 0.735); text-align: center; border: 3px solid" class="p-3 mb-1 text-white"
       >
         <h5>Arabanın Model Yılı: {{ car.modelYear }}</h5>
       </div>
@@ -62,8 +58,7 @@
       <br />
       <div
         class="col"
-        class="p-3 mb-1 bg-secondary text-white"
-        style="text-align: center; border: 3px solid rgb(146, 197, 195)"
+        style="background-color:   rgba(42, 42, 60, 0.735); text-align: center; border: 3px solid" class="p-3 mb-1 text-white"
       >
         <h5>Arabanın Günlük Fiyatı: {{ car.dailyPrice | currency }}</h5>
       </div>
@@ -139,7 +134,7 @@
   <button
     type="button"
     style="background-color:rgba(164, 81, 37, 0.79);"
-    class="btn btn-primary btn-lg  w-100" 
+    class="btndelete btn-primary btn-lg  w-100" 
     data-bs-toggle="modal" data-bs-target="#exampleModal"
   >
     İptal
@@ -180,11 +175,11 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-           Kiralama ekranından çıkmak istiyor musunuz?
+         <h5>Kiralama ekranından çıkmak istiyor musunuz?</h5>  
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal" routerLink="/cars" >EVET</button>
-            <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal"  >İPTAL</button>
+            <button type="button" class="btndelete btn-secondary"  data-bs-dismiss="modal"  >İPTAL</button>
           </div>
         </div>
       </div>

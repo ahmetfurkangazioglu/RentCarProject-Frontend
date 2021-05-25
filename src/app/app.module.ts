@@ -31,6 +31,7 @@ import { UserInformationComponent } from './components/user-information/user-inf
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FootersComponent } from './components/footers/footers.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { FootersComponent } from './components/footers/footers.component';
     UserInformationComponent,
     HomePageComponent,
     ContactComponent,
-    FootersComponent
+    FootersComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
