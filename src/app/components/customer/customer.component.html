@@ -1,0 +1,24 @@
+<table class="table table-success table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Customer Id</th>
+      <th scope="col">Name and Surname</th>
+      <th scope="col">email</th>
+      <th scope="col">companyName</th>
+      <th scope="col">phoneNumber</th>
+      <th scope="col">status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers">
+      <th scope="row">{{ customer.userId }}</th>
+      <th>{{ customer.customerId }}</th>
+      <td>{{ customer.firstName }} {{ customer.lastName }}</td>
+      <th>{{ customer.email }}</th>
+      <th>{{ customer.companyName }}</th>
+      <th>{{ customer.phoneNumber }}</th>
+      <th>{{ customer.status }}</th>
+    </tr>
+  </tbody>
+</table>

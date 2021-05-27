@@ -1,26 +1,33 @@
 <br />
 <br />
-<div class="card" >
-  <br>
-  <div style="margin-left: 4ch;">
-  <strong> <h4 style="color: rgb(113, 34, 34);">Kullanıcı Bilgilerim</h4></strong>
-  <br>
+<div class="card">
+  <br />
+  <div style="margin-left: 4ch">
+    <strong>
+      <h4 style="color: rgb(113, 34, 34)">Kullanıcı Bilgilerim</h4></strong
+    >
+    <br />
+  </div>
 </div>
-</div>
-<br>
+<br />
 <div class="card">
   <br />
   <div class="row">
     <div class="col-md-6">
-     
       <div class="vr"></div>
       <div style="color: rgb(215, 137, 42)">
-        <h5 style="margin-left: 4ch;">&nbsp;&nbsp; Üyelik Bilgilerim</h5>
+        <h5 style="margin-left: 4ch">&nbsp;&nbsp; Üyelik Bilgilerim</h5>
       </div>
-      <form [formGroup]="userUpdateForm" style="margin-left: 4ch;" class="row g-4">
+      <form
+        [formGroup]="userUpdateForm"
+        style="margin-left: 4ch"
+        class="row g-4"
+      >
         <div class="col-md-6">
           <label for="inputFİrstName" class="form-label">Adınız</label>
-          <input formControlName="firstName" style="background-color: rgba(142, 139, 139, 0.222);"
+          <input
+            formControlName="firstName"
+            style="background-color: rgba(142, 139, 139, 0.222)"
             type="text"
             class="form-control form-control-lg"
             id="inputFİrstName"
@@ -28,7 +35,9 @@
         </div>
         <div class="col-md-6">
           <label for="inputLastName" class="form-label">Soyadınız</label>
-          <input formControlName="lastName" style="background-color: rgba(142, 139, 139, 0.222);"
+          <input
+            formControlName="lastName"
+            style="background-color: rgba(142, 139, 139, 0.222)"
             type="text"
             class="form-control form-control-lg"
             id="inputLastName"
@@ -36,7 +45,9 @@
         </div>
         <div class="col-12">
           <label for="inputEmail" class="form-label">Email</label>
-          <input formControlName="email" style="background-color: rgba(142, 139, 139, 0.222);"
+          <input
+            formControlName="email"
+            style="background-color: rgba(142, 139, 139, 0.222)"
             type="email"
             class="form-control form-control-lg"
             id="inputEmail"
@@ -47,7 +58,9 @@
           <label for="inputPhoneNumber" class="form-label"
             >Telefon Numarası</label
           >
-          <input formControlName="phoneNumber" style="background-color: rgba(142, 139, 139, 0.222);"
+          <input
+            formControlName="phoneNumber"
+            style="background-color: rgba(142, 139, 139, 0.222)"
             type="text"
             class="form-control form-control-lg"
             id="inputPhoneNumber"
@@ -56,7 +69,9 @@
         </div>
         <div class="col-md-12">
           <label for="inputcompanyName" class="form-label">Şirket İsmi</label>
-          <input  formControlName="companyName" style="background-color: rgba(142, 139, 139, 0.222);"
+          <input
+            formControlName="companyName"
+            style="background-color: rgba(142, 139, 139, 0.222)"
             type="text"
             class="form-control form-control-lg"
             id="inputcompanyName"
@@ -64,38 +79,35 @@
         </div>
         <div *ngFor="let userDetail of userDetails">
           <div *ngIf="userDetail.companyName != null">
-        <div class="col-12">
-          
-            <button 
-            style="margin-left: 5ch;"
-              type="button"
-              class="btn user btn-lg"
-              (click)="userUpdate()"
-              (click)="customerUpdate()"
+            <div class="col-12">
+              <button
+                style="margin-left: 5ch"
+                type="button"
+                class="btn user btn-lg"
+                (click)="userUpdate()"
+                (click)="customerUpdate()"
               >
-             Bilgileri Kaydet
-            </button>
-        </div>
-      </div>
+                Bilgileri Kaydet
+              </button>
+            </div>
+          </div>
 
-      <div *ngIf="userDetail.companyName == null">
-        <div class="col-12">
-          
-            <button 
-            style="margin-left: 5ch;"
-              type="button"
-              class="btn user btn-lg"
-              (click)="userUpdate()"
-              (click)="customerAdd()"
+          <div *ngIf="userDetail.companyName == null">
+            <div class="col-12">
+              <button
+                style="margin-left: 5ch"
+                type="button"
+                class="btn user btn-lg"
+                (click)="userUpdate()"
+                (click)="customerAdd()"
               >
-             Bilgileri Kaydet
-            </button>
+                Bilgileri Kaydet
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-
-      </div>
       </form>
-      <br><br>
+      <br /><br />
     </div>
 
     <div class="col-md-6">
@@ -104,8 +116,9 @@
         <div class="row mb-4">
           <label for="inputEmail3" class="form-label">Şu Anki Şifre</label>
           <div class="col-sm-10">
-            <input  formControlName="currentPassword"
-            style="background-color: rgba(142, 139, 139, 0.222);"
+            <input
+              formControlName="currentPassword"
+              style="background-color: rgba(142, 139, 139, 0.222)"
               type="password"
               class="form-control form-control-lg"
               id="inputEmail3"
@@ -115,8 +128,9 @@
         <div class="row mb-4">
           <label for="inputPassword2" class="form-label">Yeni Şifre</label>
           <div class="col-sm-10">
-            <input  formControlName="password"
-             style="background-color: rgba(142, 139, 139, 0.222);"
+            <input
+              formControlName="password"
+              style="background-color: rgba(142, 139, 139, 0.222)"
               type="password"
               class="form-control form-control-lg"
               id="inputPassword2"
@@ -128,24 +142,24 @@
             >Yeni Şifre Tekrar</label
           >
           <div class="col-sm-10">
-            <input  formControlName="repeatPassword" 
-            style="background-color: rgba(142, 139, 139, 0.222);"
+            <input
+              formControlName="repeatPassword"
+              style="background-color: rgba(142, 139, 139, 0.222)"
               type="password"
               class="form-control form-control-lg"
               id="inputPassword3"
             />
           </div>
         </div>
-        <button 
-        style="margin-left: 3ch;"
+        <button
+          style="margin-left: 3ch"
           type="button"
           class="btn user btn-lg"
           (click)="passwordUpdate()"
-          >
+        >
           Şifre Güncelle
         </button>
       </form>
     </div>
   </div>
 </div>
-

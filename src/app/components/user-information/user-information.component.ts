@@ -24,7 +24,7 @@ export class UserInformationComponent implements OnInit {
   userDetails: UserDetail[];
   userId: number;
   userUpdateForm: FormGroup;
-  userPasswordForm:FormGroup;
+  userPasswordForm: FormGroup;
 
   firstName: string;
   lastName: string;
@@ -41,12 +41,12 @@ export class UserInformationComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private localStorageService: LocalStorageService,
-    private authService:AuthService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
     this.createUserUpdateForm();
-    this.createPasswordUpdateForm()
+    this.createPasswordUpdateForm();
     this.activatedRoute.params.subscribe((params) => {
       if (params['userId']) {
         this.userId = params['userId'];
@@ -81,12 +81,12 @@ export class UserInformationComponent implements OnInit {
     });
   }
 
-  createPasswordUpdateForm(){
-    this.userPasswordForm=this.formBuilder.group({
-     currentPassword:["",Validators.required],
-      password:["",Validators.required],
-      repeatPassword:["",Validators.required]
-    })
+  createPasswordUpdateForm() {
+    this.userPasswordForm = this.formBuilder.group({
+      currentPassword: ['', Validators.required],
+      password: ['', Validators.required],
+      repeatPassword: ['', Validators.required],
+    });
   }
 
   userUpdate() {
@@ -174,39 +174,42 @@ export class UserInformationComponent implements OnInit {
       );
     }
   }
-  
-  passwordUpdate(){
-    if(this.userPasswordForm.valid){
-      let password= this.userPasswordForm.value.password
-      let repeatPassword = this.userPasswordForm.value.repeatPassword
-      console.log(password,repeatPassword)
-      if(password===repeatPassword){      
-        let passwordModel = Object.assign({userId:+this.userId,password},this.userPasswordForm.value)
-        console.log(passwordModel)
-        this.authService.updatePassword(passwordModel).subscribe(response=>{
-          this.toastrService.success("Şifre güncellendi", "Başarılı")
-          setTimeout(() => {
-            window.location.reload();
-          }, 1000);
-        },responseError=>{
-          this.toastrService.error(responseError.error)
-          if (responseError.error.Errors.length > 0) {
-            for (let i = 0; i < responseError.error.Errors.length; i++) {
-              this.toastrService.error(
-                responseError.error.Errors[i].ErrorMessage,
-                'Doğrulama Hatası'
-              );
+
+  passwordUpdate() {
+    if (this.userPasswordForm.valid) {
+      let password = this.userPasswordForm.value.password;
+      let repeatPassword = this.userPasswordForm.value.repeatPassword;
+      console.log(password, repeatPassword);
+      if (password === repeatPassword) {
+        let passwordModel = Object.assign(
+          { userId: +this.userId, password },
+          this.userPasswordForm.value
+        );
+        console.log(passwordModel);
+        this.authService.updatePassword(passwordModel).subscribe(
+          (response) => {
+            this.toastrService.success('Şifre güncellendi', 'Başarılı');
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000);
+          },
+          (responseError) => {
+            this.toastrService.error(responseError.error);
+            if (responseError.error.Errors.length > 0) {
+              for (let i = 0; i < responseError.error.Errors.length; i++) {
+                this.toastrService.error(
+                  responseError.error.Errors[i].ErrorMessage,
+                  'Doğrulama Hatası'
+                );
+              }
             }
           }
-        })
-      } 
-      else{
-        this.toastrService.error("Yeni şifre ile şifre tekrarı uyuşmuyor")
+        );
+      } else {
+        this.toastrService.error('Yeni şifre ile şifre tekrarı uyuşmuyor');
       }
+    } else {
+      this.toastrService.warning('Formunuz eksik lütfen doldurunuz.', 'Uyarı');
     }
-    else{
-      this.toastrService.warning("Formunuz eksik lütfen doldurunuz.","Uyarı")
-    }
-  } 
-  
+  }
 }

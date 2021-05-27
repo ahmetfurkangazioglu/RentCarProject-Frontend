@@ -1,110 +1,128 @@
+<br /><br /><br />
 
- <br><br><br>
- 
- 
- <div class="container">
-    <div class="alert alert-secondary" role="alert">
-      <h4 style="color: brown;">Araba Bilgisi</h4>
-     </div>
-     
+<div class="container">
+  <div class="alert alert-secondary" role="alert">
+    <h4 style="color: brown">Araba Bilgisi</h4>
+  </div>
 
   <div class="row">
-  
     <div class="col-md-8">
-    <div
-      id="carouselExampleControls"
-      class="carousel slide"
-      data-bs-ride="carousel"
-    >
-      <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-      </div>
-      <div class="carousel-inner">
-        <div
-          *ngFor="let carImage of carImages; let i = index"
-          [ngClass]="getSliderClassName(i)"
-        >
-          <img
-            style="height: 400px"
-            src="{{ imageBasePath }}/{{ carImage.imagePath }}"
-            class="d-block w-100"
-            alt="..."
-          />
+      <div
+        id="carouselExampleControls"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
         </div>
+        <div class="carousel-inner">
+          <div
+            *ngFor="let carImage of carImages; let i = index"
+            [ngClass]="getSliderClassName(i)"
+          >
+            <img
+              style="height: 400px"
+              src="{{ imageBasePath }}/{{ carImage.imagePath }}"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleControls"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleControls"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleControls"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
-  </div>
 
     <br />
-   <div class="col-md-4">
-
-    <div style="background-color: rgba(174, 164, 164, 0.283);" class="card">
-<br>
-      <h4 style="color: brown">&nbsp; &nbsp;  Arabanın Detaylı bilgisi</h4>
-      <br>
+    <div class="col-md-4">
+      <div style="background-color: rgba(174, 164, 164, 0.283)" class="card">
+        <br />
+        <h4 style="color: brown">&nbsp; &nbsp; Arabanın Detaylı bilgisi</h4>
+        <br />
+      </div>
+      <br />
+      <div class="row row-cols-2" *ngFor="let car of cars">
+        <div
+          class="col"
+          style="background-color: rgba(42, 42, 60, 0.838)"
+          class="p-3 mb-2 text-white"
+        >
+          <h5>Araba Markası</h5>
+          <h5>{{ car.carName }}</h5>
+        </div>
+        <div
+          class="col"
+          style="background-color: rgba(42, 42, 60, 0.838)"
+          class="p-3 mb-2 text-white"
+        >
+          <h5>Arabanın Rengi</h5>
+          <h5>{{ car.colorName }}</h5>
+        </div>
+        <br />
+        <br />
+        <div
+          class="col"
+          style="background-color: rgba(42, 42, 60, 0.838)"
+          class="p-3 mb-2 text-white"
+        >
+          <h5>Arabanın Modeli</h5>
+          <h5>{{ car.brandName }}</h5>
+        </div>
+        <div
+          class="col"
+          style="background-color: rgba(42, 42, 60, 0.838)"
+          class="p-3 mb-2 text-white"
+        >
+          <h5>Arabanın Model Yılı</h5>
+          <h5>{{ car.modelYear }}</h5>
+        </div>
+        <br />
+        <br />
+        <div
+          class="col"
+          style="background-color: rgba(42, 42, 60, 0.838)"
+          class="p-3 mb-2 text-white"
+        >
+          <h5>Arabanın Günlük Fiyatı:</h5>
+        </div>
+        <div
+          class="col"
+          style="background-color: rgba(42, 42, 60, 0.838)"
+          class="p-3 mb-2 text-white"
+        >
+          <h5>{{ car.dailyPrice | currency }}</h5>
+        </div>
+      </div>
     </div>
-    <br>
-    <div class="row row-cols-2" *ngFor="let car of cars">
-      <div class="col" style="background-color: rgba(42, 42, 60, 0.838);" class="p-3 mb-2 text-white">
-        <h5>Araba Markası</h5>
-        <h5>{{ car.carName }}</h5>
-      </div>
-      <div class="col" style="background-color:  rgba(42, 42, 60, 0.838);" class="p-3 mb-2 text-white">
-        <h5>Arabanın Rengi</h5>
-        <h5>{{ car.colorName }}</h5>
-      </div>
-      <br />
-      <br />
-      <div class="col" style="background-color:  rgba(42, 42, 60, 0.838);" class="p-3 mb-2 text-white">
-        <h5>Arabanın Modeli</h5>
-        <h5>{{ car.brandName }}</h5>
-      </div>
-      <div class="col" style="background-color:  rgba(42, 42, 60, 0.838);" class="p-3 mb-2 text-white">
-        <h5>Arabanın Model Yılı</h5>
-        <h5>{{ car.modelYear}}</h5>
-      </div>
-      <br />
-      <br />
-      <div class="col" style="background-color:  rgba(42, 42, 60, 0.838);" class="p-3 mb-2 text-white">
-        <h5>Arabanın Günlük Fiyatı: </h5>
-      </div>
-      <div class="col" style="background-color:  rgba(42, 42, 60, 0.838);" class="p-3 mb-2 text-white">
-      <h5>{{ car.dailyPrice | currency }}</h5>
-      </div>
-    </div>
-
-  </div>
   </div>
   <br />
 
@@ -135,7 +153,12 @@
 
   <br />
 
-  <div style="background-color: rgba(160, 188, 187, 0.263);" class="alert alert-success" *ngFor="let car of cars" role="alert">
+  <div
+    style="background-color: rgba(160, 188, 187, 0.263)"
+    class="alert alert-success"
+    *ngFor="let car of cars"
+    role="alert"
+  >
     <h4 class="alert-heading">Araba Açıklaması</h4>
     <p>{{ car.description }}</p>
     <hr />
