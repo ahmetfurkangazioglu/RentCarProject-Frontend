@@ -21,6 +21,7 @@ export class ColorAddComponent implements OnInit {
   colorId: number;
   colorName: string;
   colorAddForm: FormGroup;
+  colorUpdateForm: FormGroup;
   checkDelete: boolean = false;
   checkUpdate: boolean = false;
   checkAdd: boolean = false;
@@ -52,6 +53,7 @@ export class ColorAddComponent implements OnInit {
     this.colorService.colorDelete(colorModel).subscribe(
       (response) => {
         this.toastrService.success(response.message, 'Başarılı');
+        this.getColor()
       },
       (responseError) => {
         this.toastrService.error('Beklenmedik Hata', 'Hata');
@@ -62,11 +64,12 @@ export class ColorAddComponent implements OnInit {
   colorUpdate() {
     let colorModel = Object.assign(
       { colorId: this.colorId },
-      this.colorAddForm.value
+      this.colorUpdateForm.value
     );
     this.colorService.colorUpdate(colorModel).subscribe(
       (response) => {
         this.toastrService.success(response.message, 'Başarılı');
+        this.getColor();
       },
       (responseError) => {
         if (responseError.error.Errors.length > 0) {
@@ -88,6 +91,7 @@ export class ColorAddComponent implements OnInit {
       this.colorService.colorAdd(colorModel).subscribe(
         (response) => {
           this.toastrService.success(response.message, 'Başarılı');
+          this.getColor();
         },
         (responseError) => {
           if (responseError.error.Errors.length > 0) {
@@ -108,6 +112,12 @@ export class ColorAddComponent implements OnInit {
   createColorAddForm() {
     this.colorAddForm = this.formBuilder.group({
       colorName: ['', Validators.required],
+    });
+  }
+
+  createColorUpdateForm(color:Color) {
+    this.colorUpdateForm = this.formBuilder.group({
+      colorName: [color.colorName, Validators.required],
     });
   }
 

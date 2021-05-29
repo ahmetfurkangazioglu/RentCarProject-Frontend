@@ -9,8 +9,10 @@ import {
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand';
 import { Car } from 'src/app/models/car';
+import { CarImage } from 'src/app/models/carImage';
 import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 import { ColorService } from 'src/app/services/color.service';
 
@@ -27,12 +29,16 @@ export class CarAddComponent implements OnInit {
   defaultImage = 'Images/default.jpg';
   imageBasePath = 'https://localhost:44313/';
   brands: Brand[] = [];
+  carImages:CarImage[]=[];
+  imageId:number;
+
   constructor(
     private carService: CarService,
     private formBuilder: FormBuilder,
     private toastrService: ToastrService,
     private brandService: BrandService,
-    private colorService: ColorService
+    private colorService: ColorService,
+    private imageService:CarImageService,
   ) {}
 
   carAddForm: FormGroup;
@@ -72,10 +78,10 @@ export class CarAddComponent implements OnInit {
       this.carAddForm.value.brandId = +this.carAddForm.value.brandId;
       this.carAddForm.value.colorId = +this.carAddForm.value.colorId;
       let carModel = Object.assign({}, this.carAddForm.value);
-      console.log(carModel);
       this.carService.carAdd(carModel).subscribe(
         (response) => {
           this.toastrService.success(response.message, 'Başarılı');
+          this.getcar()
         },
         (responseError) => {
           if (responseError.error.Errors.length > 0) {
@@ -92,18 +98,40 @@ export class CarAddComponent implements OnInit {
       this.toastrService.error('Formunuz Eksik', 'HATTA');
     }
   }
+
+
+
   carDelete() {
-    let carModel = Object.assign({ carId: this.carId });
-    console.log(carModel);
-    this.carService.carDelete(carModel).subscribe(
-      (response) => {
-        this.toastrService.success(response.message, 'Başarılı');
-      },
-      (responseError) => {
-        this.toastrService.error('Beklenmedik hata', 'Hatta');
+    this.imageService.getCarImageByCarId(this.carId).subscribe(response=>{
+      this.carImages=response.data
+     
+
+    for (let i = 0; i < response.data.length; i++) {
+        this.imageId=this.carImages[i].imageId
+        const formData: FormData = new FormData();
+        formData.append('Id', this.carImages[i].imageId.toString());
+        this.imageService.deleteImage(formData).subscribe(response=>{
+        })     
       }
-    );
+
+      let carModel = Object.assign({ carId: this.carId });
+      this.carService.carDelete(carModel).subscribe(
+        (response) => {
+          this.toastrService.success(response.message, 'Başarılı');
+          this.getcar()
+        },
+        (responseError) => {
+          this.toastrService.error('Beklenmedik hata', 'Hatta');
+        }
+      );
+
+    })
+
+
+   
   }
+
+
   carUpdate() {
     if (this.carUpdateForm.valid) {
       this.carUpdateForm.value.brandId = +this.carUpdateForm.value.brandId;
@@ -115,6 +143,7 @@ export class CarAddComponent implements OnInit {
       this.carService.carUpdate(carModel).subscribe(
         (response) => {
           this.toastrService.success(response.message, 'Başarılı');
+          this.getcar()
         },
         (responseError) => {
           if (responseError.error.Errors.length > 0) {

@@ -273,7 +273,7 @@
 
         <div *ngIf="checkDelete">
           <div style="background-color: rgb(216, 143, 143)" class="modal-body">
-            <h4>Silmek istediğinize emin misiniz?</h4>
+            <h4>Araba bütün resimleriyle birlikte silinecektir. Silmek istediğinize emin misiniz?</h4>
           </div>
         </div>
 
@@ -406,6 +406,7 @@
             style="background-color: rgb(102, 142, 131)"
             class="btn btn-lg w-10"
             (click)="carAdd()"
+            data-bs-dismiss="modal"
           >
             Ekle
           </button>
@@ -417,6 +418,7 @@
             style="background-color: rgb(75, 123, 110)"
             class="btn btn-lg w-10"
             (click)="carDelete()"
+            data-bs-dismiss="modal"
           >
             Sil
           </button>
@@ -428,6 +430,7 @@
             style="background-color: rgb(75, 123, 110)"
             class="btn btn-lg w-10"
             (click)="carUpdate()"
+            data-bs-dismiss="modal"
           >
             Güncelle
           </button>

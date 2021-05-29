@@ -81,6 +81,7 @@
             <button
               type="button"
               (click)="checkBool('update', brand.brandId, brand.brandName)"
+              (click)="createBrandUpdateForm(brand)"
               data-bs-toggle="modal"
               data-bs-target="#brandModal"
               rel="tooltip"
@@ -158,7 +159,7 @@
         <div style="background-color: rgb(181, 214, 227)" class="card">
           <div *ngIf="checkUpdate">
             <div class="card-body">
-              <form [formGroup]="brandAddForm">
+              <form [formGroup]="brandUpdateForm">
                 <div class="mb-3">
                   <label for="brandName">
                     <h5>Güncel Marka adını yazınız</h5></label
@@ -171,9 +172,7 @@
                       placeholder="Marka adı"
                     />
                   </div>
-                  <h6>
-                    Seçtiğiniz Marka: <strong> {{ brandName }}</strong>
-                  </h6>
+               
                 </div>
               </form>
             </div>
@@ -187,6 +186,7 @@
               style="background-color: rgb(171, 194, 188)"
               class="btn btn-lg w-10"
               (click)="brandAdd()"
+              data-bs-dismiss="modal"
             >
               Ekle
             </button>
@@ -198,6 +198,7 @@
               style="background-color: rgb(171, 194, 188)"
               class="btn btn-lg w-10"
               (click)="brandDelete()"
+              data-bs-dismiss="modal"
             >
               Sil
             </button>
@@ -209,6 +210,7 @@
               style="background-color: rgb(171, 194, 188)"
               class="btn btn-lg w-10"
               (click)="brandUpdate()"
+              data-bs-dismiss="modal"
             >
               Güncelle
             </button>

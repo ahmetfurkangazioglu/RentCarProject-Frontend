@@ -21,6 +21,7 @@ export class BrandAddComponent implements OnInit {
   brandId: number;
   brandName: string;
   brandAddForm: FormGroup;
+  brandUpdateForm: FormGroup;
   checkDelete: boolean = false;
   checkUpdate: boolean = false;
 
@@ -36,6 +37,7 @@ export class BrandAddComponent implements OnInit {
   ngOnInit(): void {
     this.getBrand();
     this.createBrandAddForm();
+    
   }
 
   getBrand() {
@@ -49,10 +51,10 @@ export class BrandAddComponent implements OnInit {
       { brandId: this.brandId },
       this.brandAddForm.value
     );
-    console.log(brandModel);
     this.brandService.brandDelete(brandModel).subscribe(
       (response) => {
         this.toastrService.success(response.message, 'Başarılı');
+        this.getBrand();
       },
       (responseError) => {
         this.toastrService.error('Beklenmedik Hata', 'Hata');
@@ -63,11 +65,12 @@ export class BrandAddComponent implements OnInit {
   brandUpdate() {
     let brandModel = Object.assign(
       { brandId: this.brandId },
-      this.brandAddForm.value
+      this.brandUpdateForm.value
     );
     this.brandService.brandUpdate(brandModel).subscribe(
       (response) => {
         this.toastrService.success(response.message, 'Başarılı');
+        this.getBrand();
       },
       (responseError) => {
         if (responseError.error.Errors.length > 0) {
@@ -89,6 +92,7 @@ export class BrandAddComponent implements OnInit {
       this.brandService.brandAdd(brandModel).subscribe(
         (response) => {
           this.toastrService.success(response.message, 'Başarılı');
+          this.getBrand();
         },
         (responseError) => {
           if (responseError.error.Errors.length > 0) {
@@ -109,6 +113,12 @@ export class BrandAddComponent implements OnInit {
   createBrandAddForm() {
     this.brandAddForm = this.formBuilder.group({
       brandName: ['', Validators.required],
+    });
+  }
+
+  createBrandUpdateForm(brand:Brand){
+    this.brandUpdateForm = this.formBuilder.group({
+      brandName: [brand.brandName, Validators.required],
     });
   }
 
